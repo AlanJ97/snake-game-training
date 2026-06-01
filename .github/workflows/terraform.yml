@@ -3,7 +3,7 @@
 # -----------------------------------------------------------------------------
 # Objetivo:
 #   - En Pull Requests -> validar (fmt + init + validate + plan) sin tocar AWS.
-#   - En push a main    -> desplegar (apply) la infraestructura a nuestra region.
+#   - En push a master  -> desplegar (apply) la infraestructura a nuestra region.
 #   - Manual            -> permitir ejecutar plan/apply bajo demanda.
 #
 # Referencias usadas:
@@ -19,7 +19,7 @@ name: Terraform CI/CD
 # -----------------------------------------------------------------------------
 # Cuando se ejecuta el workflow (on):
 #   - pull_request hacia main: corre el job de PLAN (revision, no aplica nada).
-#   - push a main: corre el job de APPLY (despliega de verdad).
+#   - push a master: corre el job de APPLY (despliega de verdad).
 #   - paths: solo nos interesa disparar cuando cambia la infraestructura o el
 #     propio workflow, para no gastar minutos en cambios de la app.
 #   - workflow_dispatch: permite lanzarlo a mano desde la pestana Actions,
@@ -27,12 +27,12 @@ name: Terraform CI/CD
 # -----------------------------------------------------------------------------
 on:
   pull_request:
-    branches: [main]
+    branches: [master]
     paths:
       - "infra/**"
       - ".github/workflows/terraform.yml"
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - "infra/**"
       - ".github/workflows/terraform.yml"
