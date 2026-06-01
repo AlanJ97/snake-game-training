@@ -2,7 +2,7 @@
 # Ajusta estos valores antes de desplegar.
 
 aws_region   = "us-east-1"
-aws_profile  = "default" # cambia por tu perfil local de AWS
+aws_profile  = "" # vacio = usa variables de entorno (OIDC en CI). En local pon tu perfil.
 project_name = "viborita"
 environment  = "prod"
 
