@@ -5,9 +5,9 @@ variable "aws_region" {
 }
 
 variable "aws_profile" {
-  description = "Perfil local de AWS CLI a usar para autenticarse."
+  description = "Perfil local de AWS CLI. Dejar vacio en CI/CD (usa variables de entorno via OIDC)."
   type        = string
-  default     = "default"
+  default     = ""
 }
 
 variable "project_name" {
